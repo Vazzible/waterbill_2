@@ -2,60 +2,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
-
+public class Main{
     public static void main(String[] args){
+        //primitive's vs references
+        //primitives are immutable
+        int x = 5;
+        int y = x;   // y gets a copy of the value, not a reference
+        x = 10;      // this only changes x
+        System.out.println(y); // still 5
 
-        String name = null;
-        int gallonsUsed = 0;
-        int customerType = 0; // 1 - single fam, 2 - duplex
-        double bill = 0;
+        //Reference Variables are mutable
+        int[] arr1 = {1, 2, 3};
+        int[] arr2 = arr1; // sets arr2 to the memory location of arr1, via pointer reference.
+        arr2[0] = 99;      // sets arr1 and arr2 because arr2 points to arr1
+        System.out.println("arr1[0] value " + arr1[0]);
+        System.out.println(arr2.length);
 
-        InputStreamReader inputStreamReader = new InputStreamReader(System.in); //input stream (holds input)
-        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);   //stream reader(reads input)
-        try {
-            System.out.print("Enter customer type 1-single Family, 2-Duplex: ");
-            customerType = Integer.parseInt(bufferedReader.readLine());
 
-            System.out.print("Enter your name: ");
-            name = bufferedReader.readLine();
-
-            System.out.print("Enter gallons used: ");
-            gallonsUsed = Integer.parseInt(bufferedReader.readLine());
-
-        }catch(IOException e){
-            throw new RuntimeException(e);
-        }
-
-        switch(customerType) {
-            case 1:
-                if (gallonsUsed <= 7000) {
-                    bill = 13.21 + gallonsUsed * (2.04 / 1000.0);
-                } else if (gallonsUsed <= 13000) {
-                    bill = 13.21 + 7000 * (2.04 / 1000.0)
-                            + (gallonsUsed - 7000) * (2.35 / 1000.0);
-                } else {
-                    bill = 13.21 + 7000 * (2.04 / 1000.0)
-                            + 6000 * (2.35 / 1000.0)
-                            + (gallonsUsed - 13000) * (2.70 / 1000.0);
-                }
-            case 2:
-                if (gallonsUsed <= 9000) {
-                    bill = 15.51 + gallonsUsed * (1.97 / 1000.0);
-                } else if (gallonsUsed <= 13000) {
-                    bill = 15.51 + 9000 * (1.97 / 1000.0)
-                            + (gallonsUsed - 9000) * (2.26 / 1000.0);
-                } else {
-                    bill = 15.51 + 9000 * (1.97 / 1000.0)
-                            + 4000 * (2.26 / 1000.0)
-                            + (gallonsUsed - 13000) * (2.60 / 1000.0);
-                }
-        }
-
-        System.out.println("Customer Type: " + customerType);
-        System.out.println("Gallons Used: " + gallonsUsed);
-        System.out.println("Customer Name: " + name);
-        System.out.printf("Total Bill: %.2f\n", bill);
+        Customer customer = new Customer();
+        System.out.println(customer.name);
+        customer.name = "sawyer";
+        System.out.println(customer.name);
 
 
     }
