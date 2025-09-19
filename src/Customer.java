@@ -22,6 +22,10 @@ public class Customer {
     private int gallonsUsed = 0;
     private int customerType = 0; // 1 - single fam, 2 - duplex
     private double bill = 0;
+
+    Customer(){
+        System.out.println("hello world");
+    }
     
     public int getGallonsUsed() {
         return gallonsUsed;
