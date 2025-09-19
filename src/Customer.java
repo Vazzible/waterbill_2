@@ -3,20 +3,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Customer {
-    final double SINGLE_BASE = 13.21;
-    final int SINGLE_TIER1 = 7000;
-    final double SINGLE_TIER1_COST = 2.04;
-    final int SINGLE_TIER2 = 6000;
-    final double SINGLE_TIER2_COST = 2.35;
-    final double SINGLE_TIER3_COST = 2.70;
-    final double DUPLEX_BASE = 15.51;
-    final int DUPLEX_TIER1 = 9000;
-    final double DUPLEX_TIER1_COST = 1.97;
-    final int DUPLEX_TIER2 = 4000;
-    final double DUPLEX_TIER2_COST = 2.26;
-    final double DUPLEX_TIER3_COST = 2.60;
-    final int TIER2_CUTOFF = 13000;
-    final double GALLONS = 1000.0;
+    private final double SINGLE_BASE = 13.21;
+    private final int SINGLE_TIER1 = 7000;
+    private final double SINGLE_TIER1_COST = 2.04;
+    private final int SINGLE_TIER2 = 6000;
+    private final double SINGLE_TIER2_COST = 2.35;
+    private final double SINGLE_TIER3_COST = 2.70;
+    private final double DUPLEX_BASE = 15.51;
+    private final int DUPLEX_TIER1 = 9000;
+    private final double DUPLEX_TIER1_COST = 1.97;
+    private final int DUPLEX_TIER2 = 4000;
+    private final double DUPLEX_TIER2_COST = 2.26;
+    private final double DUPLEX_TIER3_COST = 2.60;
+    private final int TIER2_CUTOFF = 13000;
+    private final double GALLONS = 1000.0;
 
     private String name = null;
     private int gallonsUsed = 0;
