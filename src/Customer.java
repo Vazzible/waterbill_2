@@ -3,18 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Customer {
-    private final double SINGLE_BASE = 13.21;
-    private final int SINGLE_TIER1 = 7000;
-    private final double SINGLE_TIER1_COST = 2.04;
-    private final int SINGLE_TIER2 = 6000;
-    private final double SINGLE_TIER2_COST = 2.35;
-    private final double SINGLE_TIER3_COST = 2.70;
-    private final double DUPLEX_BASE = 15.51;
-    private final int DUPLEX_TIER1 = 9000;
-    private final double DUPLEX_TIER1_COST = 1.97;
-    private final int DUPLEX_TIER2 = 4000;
-    private final double DUPLEX_TIER2_COST = 2.26;
-    private final double DUPLEX_TIER3_COST = 2.60;
+
     private final int TIER2_CUTOFF = 13000;
     private final double GALLONS = 1000.0;
 
@@ -55,8 +44,13 @@ public class Customer {
         return bill;
     }
 
+    public int getTIER2_CUTOFF() {
+        return TIER2_CUTOFF;
+    }
 
-
+    public double getGALLONS() {
+        return GALLONS;
+    }
 
     public void customerInput() {
         InputStreamReader inputStreamReader = new InputStreamReader(System.in); //input stream (holds input)
@@ -91,6 +85,7 @@ public class Customer {
                         + (gallonsUsed - TIER2_CUTOFF) * (SINGLE_TIER3_COST /
                         GALLONS);
             }
+            //call to the new method
         } else {
             if (gallonsUsed <= DUPLEX_TIER1) {
                 bill = DUPLEX_BASE + gallonsUsed * (DUPLEX_TIER1_COST / GALLONS);
