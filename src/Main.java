@@ -13,9 +13,9 @@ public class Main{
 
          */
         Duplex duplex = new Duplex();
-        Duplex.customerInput();
-        Duplex.calculateBill();
-        Duplex.printCustomerInfo();
+        duplex.customerInput();
+        duplex.calculateBill();
+        duplex.printCustomerInfo();
 
     }
 }
