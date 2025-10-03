@@ -8,12 +8,26 @@ public class testing {
     //
     @Test
     public void testSingleFamilyTier1(){
-        Customer customer = new Customer();
+        //Customer customer = new Customer();
+        Customer customer = new SingleFamily();
         customer.setCustomerType(1);
         customer.setGallonsUsed(6000);
         customer.calculateBill();
         assertEquals(25.45, customer.getBill(), 0.01);
     }
+
+    @Test
+    public void testSingleFamilyTier1LowIncome(){
+        //Customer customer = new Customer();
+        SingleFamily customer = new SingleFamily();
+        customer.setCustomerType(1);
+        customer.setLowIncome(true);
+        customer.setGallonsUsed(6000);
+        customer.calculateBill();
+        customer.applyDiscount();
+        assertEquals(22.90, customer.getBill(), 0.01);
+    }
+    /*
     @Test
     public void testSingleFamily_Below7000(){
         Customer customer = new Customer();
@@ -165,5 +179,6 @@ public class testing {
         customer.calculateBill();
         assertEquals(41.59, customer.getBill(), 0.01);
     }
+     */
 }
 

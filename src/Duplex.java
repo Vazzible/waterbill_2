@@ -7,17 +7,17 @@ public class Duplex extends Customer{
     private final double DUPLEX_TIER3_COST = 2.60;
 
     public void calculateBill() {{
-            if (gallonsUsed <= DUPLEX_TIER1) {
-                bill = DUPLEX_BASE + gallonsUsed * (DUPLEX_TIER1_COST / GALLONS);
-            } else if (gallonsUsed <= TIER2_CUTOFF) {
-                bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / GALLONS)
-                        + (gallonsUsed - DUPLEX_TIER1) * (DUPLEX_TIER2_COST /
-                        GALLONS);
+            if (getGallonsUsed() <= DUPLEX_TIER1) {
+                bill = DUPLEX_BASE + getGallonsUsed() * (DUPLEX_TIER1_COST / getGALLONS());
+            } else if (getGallonsUsed() <= getTIER2_CUTOFF()) {
+                bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / getGALLONS())
+                        + (getGallonsUsed() - DUPLEX_TIER1) * (DUPLEX_TIER2_COST /
+                        getGALLONS());
             } else {
-                bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / GALLONS)
-                        + DUPLEX_TIER2 * (DUPLEX_TIER2_COST / GALLONS)
-                        + (gallonsUsed - TIER2_CUTOFF) * (DUPLEX_TIER3_COST /
-                        GALLONS);
+                bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / getGALLONS())
+                        + DUPLEX_TIER2 * (DUPLEX_TIER2_COST / getGALLONS())
+                        + (getGallonsUsed() - getTIER2_CUTOFF()) * (DUPLEX_TIER3_COST /
+                        getGALLONS());
             }
         }
     }

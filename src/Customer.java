@@ -10,7 +10,7 @@ public class Customer {
     private String name = null;
     private int gallonsUsed = 0;
     private int customerType = 0; // 1 - single fam, 2 - duplex
-    private double bill = 0;
+    protected double bill = 0;
 
     Customer(){
         System.out.println("hello world");
@@ -72,6 +72,7 @@ public class Customer {
     }
 
     public void calculateBill() {
+        /*
         if (customerType == 1) {
             if (gallonsUsed <= SINGLE_TIER1) {
                 bill = SINGLE_BASE + gallonsUsed * (SINGLE_TIER1_COST / GALLONS);
@@ -100,6 +101,7 @@ public class Customer {
                         GALLONS);
             }
         }
+        */
     }
 
     public void printCustomerInfo() {
