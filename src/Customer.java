@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Customer {
+public abstract class Customer {
 
     private final int TIER2_CUTOFF = 13000;
     private final double GALLONS = 1000.0;
@@ -10,7 +10,7 @@ public class Customer {
     private String name = null;
     private int gallonsUsed = 0;
     private int customerType = 0; // 1 - single fam, 2 - duplex
-    protected double bill = 0;
+    private double bill = 0;
 
     Customer(){
         System.out.println("hello world");
@@ -71,37 +71,15 @@ public class Customer {
 
     }
 
-    public void calculateBill() {
-        /*
-        if (customerType == 1) {
-            if (gallonsUsed <= SINGLE_TIER1) {
-                bill = SINGLE_BASE + gallonsUsed * (SINGLE_TIER1_COST / GALLONS);
-            } else if (gallonsUsed <= TIER2_CUTOFF) {
-                bill = SINGLE_BASE + SINGLE_TIER1 * (SINGLE_TIER1_COST / GALLONS)
-                        + (gallonsUsed - SINGLE_TIER1) * (SINGLE_TIER2_COST /
-                        GALLONS);
-            } else {
-                bill = SINGLE_BASE + SINGLE_TIER1 * (SINGLE_TIER1_COST / GALLONS)
-                        + SINGLE_TIER2 * (SINGLE_TIER2_COST / GALLONS)
-                        + (gallonsUsed - TIER2_CUTOFF) * (SINGLE_TIER3_COST /
-                        GALLONS);
-            }
-            //call to the new method
-        } else {
-            if (gallonsUsed <= DUPLEX_TIER1) {
-                bill = DUPLEX_BASE + gallonsUsed * (DUPLEX_TIER1_COST / GALLONS);
-            } else if (gallonsUsed <= TIER2_CUTOFF) {
-                bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / GALLONS)
-                        + (gallonsUsed - DUPLEX_TIER1) * (DUPLEX_TIER2_COST /
-                        GALLONS);
-            } else {
-                bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / GALLONS)
-                        + DUPLEX_TIER2 * (DUPLEX_TIER2_COST / GALLONS)
-                        + (gallonsUsed - TIER2_CUTOFF) * (DUPLEX_TIER3_COST /
-                        GALLONS);
-            }
+    protected abstract double calculateBill();
+
+    public void generateBill(){
+        double calculateBill = calculateBill();
+        if(calculateBill < 0){
+            System.out.println("This bill must be positive");
+        } else{
+            System.out.println("coolio");
         }
-        */
     }
 
     public void printCustomerInfo() {

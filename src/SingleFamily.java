@@ -17,7 +17,8 @@ public class SingleFamily extends Customer{
     }
 
     @Override
-    public void calculateBill() {
+    public double calculateBill() {
+        double bill;
         if (getGallonsUsed() <= SINGLE_TIER1) {
             bill = SINGLE_BASE + getGallonsUsed() * (SINGLE_TIER1_COST / getGALLONS());
         }

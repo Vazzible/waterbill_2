@@ -6,7 +6,8 @@ public class Duplex extends Customer{
     private final double DUPLEX_TIER2_COST = 2.26;
     private final double DUPLEX_TIER3_COST = 2.60;
 
-    public void calculateBill() {{
+    public double calculateBill() {
+        double bill;
             if (getGallonsUsed() <= DUPLEX_TIER1) {
                 bill = DUPLEX_BASE + getGallonsUsed() * (DUPLEX_TIER1_COST / getGALLONS());
             } else if (getGallonsUsed() <= getTIER2_CUTOFF()) {
@@ -19,6 +20,6 @@ public class Duplex extends Customer{
                         + (getGallonsUsed() - getTIER2_CUTOFF()) * (DUPLEX_TIER3_COST /
                         getGALLONS());
             }
+        return bill;
         }
-    }
 }
