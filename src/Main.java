@@ -5,8 +5,15 @@ import java.io.InputStreamReader;
 public class Main{
     public static void main(String[] args){
         Customer customer = new SingleFamily();
+        Customer customer2 = new Duplex();
         customer.customerInput();
+        customer.generateBill();
 
+        customer2.customerInput();
+        customer2.generateBill();
 
+        for(Customer c : Customer.getAllCustomer()){
+            c.printCustomerInfo();
+        }
     }
 }

@@ -33,9 +33,15 @@ public class SingleFamily extends Customer{
                     + (getGallonsUsed() - getTIER2_CUTOFF()) * (SINGLE_TIER3_COST /
                     getGALLONS());
         }
+        return bill;
     }
-    public void applyDiscount(){
-        bill = bill * 0.9;
+
+    @Override
+    public double applyDiscount(double bill){
+        if(isLowIncome) {
+            bill = bill * 0.9;
+        }
+        return bill;
     }
 
     @Override

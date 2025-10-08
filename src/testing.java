@@ -12,7 +12,7 @@ public class testing {
         Customer customer = new SingleFamily();
         customer.setCustomerType(1);
         customer.setGallonsUsed(6000);
-        customer.calculateBill();
+        customer.generateBill();
         assertEquals(25.45, customer.getBill(), 0.01);
     }
 
@@ -23,8 +23,8 @@ public class testing {
         customer.setCustomerType(1);
         customer.setLowIncome(true);
         customer.setGallonsUsed(6000);
-        customer.calculateBill();
-        customer.applyDiscount();
+        customer.generateBill();
+
         assertEquals(22.90, customer.getBill(), 0.01);
     }
     /*

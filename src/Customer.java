@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.Array;
+import java.util.ArrayList;
 
 public abstract class Customer {
 
@@ -12,6 +14,11 @@ public abstract class Customer {
     private int customerType = 0; // 1 - single fam, 2 - duplex
     private double bill = 0;
 
+    /*
+    private int[] test = new int[5];
+    private ArrayList<Integer> something = new ArrayList<>();
+    */
+    private static ArrayList<Customer> AllCustomer = new ArrayList<>();
     Customer(){
         System.out.println("hello world");
     }
@@ -44,12 +51,17 @@ public abstract class Customer {
         return bill;
     }
 
+
     public int getTIER2_CUTOFF() {
         return TIER2_CUTOFF;
     }
 
     public double getGALLONS() {
         return GALLONS;
+    }
+
+    public static ArrayList<Customer> getAllCustomer() {
+        return AllCustomer;
     }
 
     public void customerInput() {
@@ -75,11 +87,22 @@ public abstract class Customer {
 
     public void generateBill(){
         double calculateBill = calculateBill();
-        if(calculateBill < 0){
+        double finalBill = applyDiscount(calculateBill);
+        if(finalBill < 0){
             System.out.println("This bill must be positive");
         } else{
+            this.bill = finalBill;
             System.out.println("coolio");
+            registerCustomer();
         }
+    }
+
+    protected void registerCustomer(){
+        AllCustomer.add(this);
+    }
+
+    protected double applyDiscount(double calculatedBill){
+        return calculatedBill;
     }
 
     public void printCustomerInfo() {
