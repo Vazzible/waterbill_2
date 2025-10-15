@@ -51,7 +51,7 @@ public class SingleFamily extends Customer{
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
 
         try {
-            System.out.print("Is th customer low-income? True/false");
+            System.out.print("Is the customer low-income? True/false");
             isLowIncome = Boolean.parseBoolean(bufferedReader.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);

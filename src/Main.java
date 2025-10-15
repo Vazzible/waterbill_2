@@ -11,9 +11,12 @@ public class Main{
 
         customer2.customerInput();
         customer2.generateBill();
+        System.out.print(Customer.getHighestBill());
 
+        /*
         for(Customer c : Customer.getAllCustomer()){
             c.printCustomerInfo();
         }
+         */
     }
 }

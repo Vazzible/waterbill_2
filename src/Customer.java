@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public abstract class Customer {
 
@@ -83,6 +84,25 @@ public abstract class Customer {
 
     }
 
+    public static Customer getHighestBill(){
+        Customer max = getAllCustomer().get(0);
+        for(Customer c : getAllCustomer()){
+         if(c.getBill() < max.getBill()){
+            max = c;
+         }
+        }
+        return max;
+    }
+    public static Customer getLowestBill(){
+        Customer min = getAllCustomer().get(0);
+        for(Customer c : getAllCustomer()){
+            if(c.getBill() < min.getBill()){
+                min = c;
+            }
+        }
+        return min;
+    }
+
     protected abstract double calculateBill();
 
     public void generateBill(){
@@ -110,5 +130,13 @@ public abstract class Customer {
         System.out.println("Gallons Used: " + gallonsUsed);
         System.out.println("Customer Name: " + name);
         System.out.printf("Total Bill: %.2f\n", bill);
+    }
+
+    @Override
+    public String toString(){
+        return "Customer Name: " + name + "\n GallonsUsed: " + gallonsUsed + "\n Total_Bill: " + bill +"\n";
+    }
+    public static void sortCustomerByBill(){
+        Collections.sort(getAllCustomer());
     }
 }
