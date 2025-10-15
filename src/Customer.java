@@ -4,8 +4,9 @@ import java.io.InputStreamReader;
 import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
-public abstract class Customer {
+public abstract class Customer{
 
     private final int TIER2_CUTOFF = 13000;
     private final double GALLONS = 1000.0;
@@ -137,6 +138,9 @@ public abstract class Customer {
         return "Customer Name: " + name + "\n GallonsUsed: " + gallonsUsed + "\n Total_Bill: " + bill +"\n";
     }
     public static void sortCustomerByBill(){
-        Collections.sort(getAllCustomer());
+        getAllCustomer().sort(Comparator.comparingDouble(Customer::getBill));
+    }
+    public static void sortCustomerByGallonsUsed(){
+        getAllCustomer().sort(Comparator.comparingInt(Customer::getGallonsUsed));
     }
 }
