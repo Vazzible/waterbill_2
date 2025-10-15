@@ -5,7 +5,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public abstract class Customer {
+public abstract class Customer implements Comparable<Customer> {
 
     private final int TIER2_CUTOFF = 13000;
     private final double GALLONS = 1000.0;
@@ -138,5 +138,14 @@ public abstract class Customer {
     }
     public static void sortCustomerByBill(){
         Collections.sort(getAllCustomer());
+    }
+
+    @Override
+    public int compareTo(Customer o) {
+        // -1 this obj < o: Means this obj is smaller and must come first.
+        // 0 this obj == o: Equality, nothing happens.
+        //1 this obj > o: Obj is larger, and must come after.
+
+        return Double.compare(this.bill, o.bill);
     }
 }

@@ -11,12 +11,13 @@ public class Main{
 
         customer2.customerInput();
         customer2.generateBill();
+        Customer.sortCustomerByBill();
         System.out.print(Customer.getHighestBill());
 
-        /*
+
         for(Customer c : Customer.getAllCustomer()){
             c.printCustomerInfo();
         }
-         */
+
     }
 }
