@@ -15,6 +15,13 @@ public class SingleFamily extends Customer{
     protected void setLowIncome(boolean lowIncome) {
         isLowIncome = lowIncome;
     }
+    public SingleFamily(){
+        System.out.println("SingleFamily Default Constructor");
+    }
+    public SingleFamily(String name, int customerType, int gallonsUsed, boolean isLowIncome){
+        super(name, customerType, gallonsUsed);
+        setLowIncome(isLowIncome);
+    }
 
     @Override
     public double calculateBill() {

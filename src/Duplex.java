@@ -10,16 +10,19 @@ public class Duplex extends Customer{
         double bill;
             if (getGallonsUsed() <= DUPLEX_TIER1) {
                 bill = DUPLEX_BASE + getGallonsUsed() * (DUPLEX_TIER1_COST / getGALLONS());
-            } else if (getGallonsUsed() <= getTIER2_CUTOFF()) {
+            }
+            else if (getGallonsUsed() <= getTIER2_CUTOFF()) {
                 bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / getGALLONS())
                         + (getGallonsUsed() - DUPLEX_TIER1) * (DUPLEX_TIER2_COST /
                         getGALLONS());
-            } else {
+            }
+            else
+            {
                 bill = DUPLEX_BASE + DUPLEX_TIER1 * (DUPLEX_TIER1_COST / getGALLONS())
                         + DUPLEX_TIER2 * (DUPLEX_TIER2_COST / getGALLONS())
                         + (getGallonsUsed() - getTIER2_CUTOFF()) * (DUPLEX_TIER3_COST /
                         getGALLONS());
             }
         return bill;
-        }
+    }
 }

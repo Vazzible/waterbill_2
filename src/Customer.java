@@ -21,8 +21,14 @@ public abstract class Customer{
     private ArrayList<Integer> something = new ArrayList<>();
     */
     private static ArrayList<Customer> AllCustomer = new ArrayList<>();
-    Customer(){
-        System.out.println("hello world");
+    public Customer(){
+        System.out.println("Customer default Constructor");
+    }
+    public Customer(String name, int customerType, int gallonsUsed){
+        System.out.println("Customer custom Constructor");
+        setName(name);
+        setCustomerType(customerType);
+        setGallonsUsed(gallonsUsed);
     }
     
     public int getGallonsUsed() {
