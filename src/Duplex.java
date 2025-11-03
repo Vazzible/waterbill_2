@@ -6,6 +6,11 @@ public class Duplex extends Customer{
     private final double DUPLEX_TIER2_COST = 2.26;
     private final double DUPLEX_TIER3_COST = 2.60;
 
+    public Duplex(String name, int gallons){
+        super(name, gallons);
+
+    }
+
     public double calculateBill() {
         double bill;
             if (getGallonsUsed() <= DUPLEX_TIER1) {

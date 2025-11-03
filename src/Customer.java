@@ -24,7 +24,7 @@ public abstract class Customer{
     public Customer(){
         System.out.println("Customer default Constructor");
     }
-    public Customer(String name, int customerType, int gallonsUsed){
+    public Customer(String name, int gallonsUsed){
         System.out.println("Customer custom Constructor");
         setName(name);
         setCustomerType(customerType);
