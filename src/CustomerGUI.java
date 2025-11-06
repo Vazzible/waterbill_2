@@ -4,13 +4,19 @@ import java.awt.event.ActionListener;
 
 public class CustomerGUI  {
     private JFrame jFrame;
-    private JPanel inputPanel, namePanel, gallonsPanel, typePanel, buttonPanel, mainPanel;
+    private JPanel inputPanel, namePanel, gallonsPanel, typePanel, buttonPanel, mainPanel, dynamicPanel;
     private JTextField nameField, gallonsField;
     private JTextArea outputArea;
     private JButton billButton, showButton;
     private JRadioButton singleFamilyButton, duplexButton;
     private ButtonGroup typeGroup;
     private JScrollPane scrollPane;
+
+    private SingleFamilyPanel singleFamilyPanel;
+    private BaseCustomerPanel baseCustomerPanel;
+
+    private CustomerPanel  currentPanel;            //this is the most important part of inherited panels
+
 
     public CustomerGUI() {
         jFrame = new JFrame();
@@ -42,6 +48,10 @@ public class CustomerGUI  {
         outputArea = new JTextArea(10, 40);
         scrollPane = new JScrollPane(outputArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
+        dynamicPanel = new JPanel();
+
+        singleFamilyPanel = new SingleFamilyPanel();
+        baseCustomerPanel = new BaseCustomerPanel();
     }
 
     public void initializeUI(){
@@ -68,6 +78,10 @@ public class CustomerGUI  {
         typePanel.add(duplexButton);
         inputPanel.add(typePanel);
 
+        //Dynamic Panel
+        dynamicPanel.setLayout(new BorderLayout());
+        inputPanel.add(dynamicPanel);
+
         // Buttons
         buttonPanel.add(billButton);
         buttonPanel.add(showButton);
@@ -93,6 +107,13 @@ public class CustomerGUI  {
         billButton.addActionListener(listener);
     }
 
+    public void addActionListenerSignelFamily(ActionListener listener){
+        singleFamilyButton.addActionListener(listener);
+    }
+    public void addActionListenerDuplex(ActionListener listener){
+        duplexButton.addActionListener(listener);
+    }
+
     public JTextField getGallonsField() {
         return gallonsField;
     }
@@ -101,4 +122,28 @@ public class CustomerGUI  {
         return nameField;
     }
 
+    public void setOutputArea(String text) {
+        this.outputArea.setText(text);
+    }
+
+    public SingleFamilyPanel getSingleFamilyPanel() {
+        return singleFamilyPanel;
+    }
+
+    public BaseCustomerPanel getBaseCustomerPanel() {
+        return baseCustomerPanel;
+    }
+
+    public CustomerPanel getCurrentPanel() {
+        return currentPanel;
+    }
+
+    public void switchPanel(JPanel newPanel){
+        dynamicPanel.removeAll();
+        dynamicPanel.add(newPanel, BorderLayout.CENTER);
+        dynamicPanel.revalidate();
+        dynamicPanel.repaint();
+
+        currentPanel = (CustomerPanel) newPanel;
+    }
 }

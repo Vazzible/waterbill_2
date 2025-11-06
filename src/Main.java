@@ -9,6 +9,6 @@ public class Main{
 
         CustomerController customerController = new CustomerController(customerGUI);
 
-        Customer customer = new SingleFamily("name", 0, 100, false);
+        Customer customer = new SingleFamily("name", 100, false);
     }
 }

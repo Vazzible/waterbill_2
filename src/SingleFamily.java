@@ -18,7 +18,7 @@ public class SingleFamily extends Customer{
     public SingleFamily(){
         System.out.println("SingleFamily Default Constructor");
     }
-    public SingleFamily(String name, int customerType, int gallonsUsed, boolean isLowIncome){
+    public SingleFamily(String name, int gallonsUsed, boolean isLowIncome){
         super(name, gallonsUsed);
         setLowIncome(isLowIncome);
     }
