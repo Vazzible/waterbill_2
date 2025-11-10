@@ -137,6 +137,9 @@ public class CustomerGUI  {
     public CustomerPanel getCurrentPanel() {
         return currentPanel;
     }
+    public void setCurrentPanel(CustomerPanel currentPanel) {
+        this.currentPanel = currentPanel;
+    }
 
     public void switchPanel(JPanel newPanel){
         dynamicPanel.removeAll();
@@ -146,4 +149,5 @@ public class CustomerGUI  {
 
         currentPanel = (CustomerPanel) newPanel;
     }
+
 }
